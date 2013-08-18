@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="magicarrow" title="Magic Breadcrumb Arrow" version_string="2.1" version_id="6" url="http://xenforo.com/community/threads/magic-breadcrumb-arrow.24122" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates>
+    <template title="style_property_magicbreadcrumb_disclaimer"><![CDATA[<p class="subHeading" style="text-align:center; font-weight:bolder">{xen:phrase property_magicbreadcrumb_disclaimer_title}</p>
+<p class="secondaryContent">{xen:phrase property_magicbreadcrumb_disclaimer_desc}</p>]]></template>
+  </admin_templates>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="template_hook" execute_order="10" callback_class="Sedo_MagicArrow_Listeners_Templates" callback_method="hooks" active="1" hint="" description="Templates Hooks Listener"/>
+    <listener event_id="template_post_render" execute_order="10" callback_class="Sedo_MagicArrow_Listeners_Templates" callback_method="postrender" active="1" hint="" description="Template post render listener"/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups/>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="property_magicbreadcrumb_disclaimer_desc" version_id="5" version_string="2.0"><![CDATA[The below SVG image background configuration is quite experimental. It has been tested with the following SVG browsers:  Firefox, Chrome, Opera, IE 9 & 10. Here is the <a href="http://xenforo.com/community/threads/svg-images.41864/" target="_blank">reference link</a> which explains what were the problems to implement this background option.<br />
+<br />
+First of all, this addon has two integration modes:<br />
+> with the <b><a href="http://xenforo.com/community/resources/template-modification-system-tms.293/" target="_blank">TMS (template modifications system)</a> </b><br />
+> with <b>Javascript</b>.<br /><br />
+With TMS, the background pattern will work with all the browsers quoted above.<br />
+With the Javascript method, the background pattern will not work with Opera (v.12.11 Rev 1661). To avoid display problems and standardise background on Opera, the background image of the breadcrumb item will be automatically deleted (using a Javascript function).<br />
+<br />
+Last thing: if you want this background configuration to work with IE9, <b>you will have to</b> install this addon: <a href="http://xenforo.com/community/resources/browser-detection-mobile-msie.1098/" blank="_target">Browser Detection (Mobile/MSIE) </a>.
+
+]]></phrase>
+    <phrase title="property_magicbreadcrumb_disclaimer_title" version_id="4" version_string="1.2"><![CDATA[Disclaimer]]></phrase>
+    <phrase title="style_property_group_EasyBreadcrumb_master" version_id="3" version_string="1.2"><![CDATA[Easy Breadcrumb]]></phrase>
+    <phrase title="style_property_group_EasyBreadcrumb_master_desc" version_id="3" version_string="1.2"><![CDATA[Easy configuration for the Breadcrumb]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_arrow_hover_description_master" version_id="4" version_string="1.2"><![CDATA[Color of the hover arrow (If you activate the SVG arrow, this color will be used as the inner SVG arrow color). Background default color value: @breadcrumbItemCrumbHover.background-color]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_arrow_hover_master" version_id="4" version_string="1.2"><![CDATA[Hover Arrow]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_arrow_killborders_description_master" version_id="4" version_string="1.2"><![CDATA[The border of arrows are not cross browsers. This options will delete any borders, even on Firefox. If you want to display clean borders on all modern browsers, use the SVG arrows solution.]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_arrow_killborders_master" version_id="4" version_string="1.2"><![CDATA[Delete all arrows borders?]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_arrow_makeitclickable_description_master" version_id="4" version_string="1.2"><![CDATA[This option will include the arrow part inside the item url.]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_arrow_makeitclickable_master" version_id="4" version_string="1.2"><![CDATA[Make arrows clickable?]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_arrow_normal_description_master" version_id="4" version_string="1.2"><![CDATA[Color of the normal arrow (If you activate the SVG arrow, this color will be used as the inner SVG arrow color). Background color default value: @breadcrumbItemCrumb.background-color]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_arrow_normal_first_description_master" version_id="4" version_string="1.2"><![CDATA[Color of the normal arrow - first item (If you activate the SVG arrow, this color will be used as the inner SVG arrow color). Background color default value: @breadcrumbItemFirstCrumb.background-color]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_arrow_normal_first_master" version_id="4" version_string="1.2"><![CDATA[Normal Arrow - First item]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_arrow_normal_last_description_master" version_id="4" version_string="1.2"><![CDATA[Color of the normal arrow - last item (If you activate the SVG arrow, this color will be used as the inner SVG arrow color). Background default color value: @breadcrumbItemLastCrumb.background-color]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_arrow_normal_last_master" version_id="4" version_string="1.2"><![CDATA[Normal Arrow - Last item]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_arrow_normal_master" version_id="4" version_string="1.2"><![CDATA[Normal Arrow]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_activate_description_master" version_id="4" version_string="1.2"><![CDATA[These SVG Arrows will replace the XenForo Default Arrows. They will work in all modern browsers (old browsers will continue to display normal arrows). Use them for example to display a border to the arrows like on Firefox (which is in fact a bug).]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_activate_master" version_id="3" version_string="1.2"><![CDATA[Activate the SVG Arrows]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_background_activate_description_master" version_id="4" version_string="1.2"><![CDATA[This option will add a layer with a background image above the color layer. This option should be used if you want to do more than only display the arrow border. It's working in all modern browsers except Opera... See information below.]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_background_activate_master" version_id="4" version_string="1.2"><![CDATA[Add a layer with an image background to the SVG arrows]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_background_disclaimer_description_master" version_id="4" version_string="1.2"><![CDATA[]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_background_disclaimer_master" version_id="4" version_string="1.2"><![CDATA[Disclaimer]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_background_height_description_master" version_id="4" version_string="1.2"><![CDATA[You MUST set a correct value for this option (do not put 'px').]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_background_height_master" version_id="4" version_string="1.2"><![CDATA[Image Background Height]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_background_url_description_master" version_id="5" version_string="2.0"><![CDATA[The image link must be the FULL URL, otherwise it will not work with Opera!]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_background_url_master" version_id="5" version_string="2.0"><![CDATA[Image Background Full Url]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_background_width_description_master" version_id="4" version_string="1.2"><![CDATA[You MUST set a correct value for this option (do not put 'px').]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_background_width_master" version_id="4" version_string="1.2"><![CDATA[Image Background Width]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_border_color_description_master" version_id="4" version_string="1.2"><![CDATA[Color of the outer arrow]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_border_color_master" version_id="3" version_string="1.2"><![CDATA[SVG Arrow Skeleton Border Color]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_border_width_description_master" version_id="3" version_string="1.2"><![CDATA[This option could also also be called the SVG Arrow Outer. It will display the lines of the SVG Arrows. Enter here which should be their border width. Default value: 1 (do not put px).]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_border_width_master" version_id="3" version_string="1.2"><![CDATA[SVG Arrow Skeleton Border Width]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_height_description_master" version_id="3" version_string="1.2"><![CDATA[Default height (for XenForo Default Theme):  24 (do not put px).]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_height_master" version_id="3" version_string="1.2"><![CDATA[SVG Arrow Height]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_killbackground_description_master" version_id="4" version_string="1.2"><![CDATA[This option will delete the image backgrounds of breadcrumb items if the bowers is not compatible with SVG (Javascript detection).]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_killbackground_master" version_id="4" version_string="1.2"><![CDATA[None SVG broswers: standardise  background?]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_opacity_color_description_master" version_id="4" version_string="1.2"><![CDATA[You can control here the opacity of the Color layer. From 0.1 to 1 (1 being not transparent).]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_opacity_color_master" version_id="4" version_string="1.2"><![CDATA[Color layer opacity]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_opacity_img_description_master" version_id="4" version_string="1.2"><![CDATA[You can control here the opacity of the Image layer. From 0.1 to 1 (1 being not transparent).]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_opacity_img_master" version_id="4" version_string="1.2"><![CDATA[Image layer opacity]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_width_description_master" version_id="3" version_string="1.2"><![CDATA[Default width (for XenForo Default Theme): 12 (do not put px).]]></phrase>
+    <phrase title="style_property_magicbreadcrumb_svg_width_master" version_id="3" version_string="1.2"><![CDATA[SVG Arrow Width]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties>
+    <property property_name="magicbreadcrumb_svg_width" property_type="scalar" definition="1" group_name="EasyBreadcrumb" title="SVG Arrow Width" description="Default width (for XenForo Default Theme): 12 (do not put px)." css_components="" scalar_type="number" scalar_parameters="" display_order="210" sub_group="magicbreadcrumb"><![CDATA[12]]></property>
+    <property property_name="magicbreadcrumb_svg_height" property_type="scalar" definition="1" group_name="EasyBreadcrumb" title="SVG Arrow Height" description="Default height (for XenForo Default Theme):  24 (do not put px)." css_components="" scalar_type="number" scalar_parameters="" display_order="220" sub_group="magicbreadcrumb"><![CDATA[24]]></property>
+    <property property_name="magicbreadcrumb_svg_activate" property_type="scalar" definition="1" group_name="EasyBreadcrumb" title="Activate the SVG Arrows" description="These SVG Arrows will replace the XenForo Default Arrows. They will work in all modern browsers (old browsers will continue to display normal arrows). Use them for example to display a border to the arrows like on Firefox (which is in fact a bug)." css_components="" scalar_type="boolean" scalar_parameters="0" display_order="200" sub_group="magicbreadcrumb"><![CDATA[0]]></property>
+    <property property_name="magicbreadcrumb_svg_border_width" property_type="scalar" definition="1" group_name="EasyBreadcrumb" title="SVG Arrow Skeleton Border Width" description="This option could also also be called the SVG Arrow Outer. It will display the lines of the SVG Arrows. Enter here which should be their border width. Default value: 1 (do not put px)." css_components="" scalar_type="number" scalar_parameters="" display_order="230" sub_group="magicbreadcrumb"><![CDATA[1]]></property>
+    <property property_name="magicbreadcrumb_svg_border_color" property_type="scalar" definition="1" group_name="EasyBreadcrumb" title="SVG Arrow Skeleton Border Color" description="Color of the outer arrow" css_components="" scalar_type="color" scalar_parameters="" display_order="240" sub_group="magicbreadcrumb"><![CDATA[@primaryDark]]></property>
+    <property property_name="magicbreadcrumb_arrow_normal" property_type="css" definition="1" group_name="EasyBreadcrumb" title="Normal Arrow" description="Color of the normal arrow (If you activate the SVG arrow, this color will be used as the inner SVG arrow color). Background color default value: @breadcrumbItemCrumb.background-color" css_components="text,background,extra" scalar_type="" scalar_parameters="" display_order="10" sub_group="magicbreadcrumb_color"><![CDATA[{"background-color":"@breadcrumbItemCrumb.background-color"}]]></property>
+    <property property_name="magicbreadcrumb_arrow_normal_first" property_type="css" definition="1" group_name="EasyBreadcrumb" title="Normal Arrow - First item" description="Color of the normal arrow - first item (If you activate the SVG arrow, this color will be used as the inner SVG arrow color). Background color default value: @breadcrumbItemFirstCrumb.background-color" css_components="text,background,extra" scalar_type="" scalar_parameters="" display_order="15" sub_group="magicbreadcrumb_color"><![CDATA[{"background-color":"@breadcrumbItemFirstCrumb.background-color"}]]></property>
+    <property property_name="magicbreadcrumb_arrow_normal_last" property_type="css" definition="1" group_name="EasyBreadcrumb" title="Normal Arrow - Last item" description="Color of the normal arrow - last item (If you activate the SVG arrow, this color will be used as the inner SVG arrow color). Background default color value: @breadcrumbItemLastCrumb.background-color" css_components="text,background,extra" scalar_type="" scalar_parameters="" display_order="20" sub_group="magicbreadcrumb_color"><![CDATA[{"background-color":"@breadcrumbItemLastCrumb.background-color"}]]></property>
+    <property property_name="magicbreadcrumb_arrow_hover" property_type="css" definition="1" group_name="EasyBreadcrumb" title="Hover Arrow" description="Color of the hover arrow (If you activate the SVG arrow, this color will be used as the inner SVG arrow color). Background default color value: @breadcrumbItemCrumbHover.background-color" css_components="text,background,extra" scalar_type="" scalar_parameters="" display_order="20" sub_group="magicbreadcrumb_color"><![CDATA[{"background-color":"@breadcrumbItemCrumbHover.background-color"}]]></property>
+    <property property_name="magicbreadcrumb_svg_background_activate" property_type="scalar" definition="1" group_name="EasyBreadcrumb" title="Add a layer with an image background to the SVG arrows" description="This option will add a layer with a background image above the color layer. This option should be used if you want to do more than only display the arrow border. It's working in all modern browsers except Opera... See information below." css_components="" scalar_type="boolean" scalar_parameters="" display_order="301" sub_group="magicbreadcrumb_svg_bk"><![CDATA[0]]></property>
+    <property property_name="magicbreadcrumb_svg_background_url" property_type="scalar" definition="1" group_name="EasyBreadcrumb" title="Image Background Full Url" description="The image link must be the FULL URL, otherwise it will not work with Opera!" css_components="" scalar_type="" scalar_parameters="" display_order="310" sub_group="magicbreadcrumb_svg_bk"><![CDATA[]]></property>
+    <property property_name="magicbreadcrumb_svg_background_width" property_type="scalar" definition="1" group_name="EasyBreadcrumb" title="Image Background Width" description="You MUST set a correct value for this option (do not put 'px')." css_components="" scalar_type="number" scalar_parameters="" display_order="320" sub_group="magicbreadcrumb_svg_bk"><![CDATA[]]></property>
+    <property property_name="magicbreadcrumb_svg_background_height" property_type="scalar" definition="1" group_name="EasyBreadcrumb" title="Image Background Height" description="You MUST set a correct value for this option (do not put 'px')." css_components="" scalar_type="number" scalar_parameters="" display_order="330" sub_group="magicbreadcrumb_svg_bk"><![CDATA[]]></property>
+    <property property_name="magicbreadcrumb_svg_opacity_img" property_type="scalar" definition="1" group_name="EasyBreadcrumb" title="Image layer opacity" description="You can control here the opacity of the Image layer. From 0.1 to 1 (1 being not transparent)." css_components="" scalar_type="number" scalar_parameters="" display_order="340" sub_group="magicbreadcrumb_svg_bk"><![CDATA[1]]></property>
+    <property property_name="magicbreadcrumb_svg_opacity_color" property_type="scalar" definition="1" group_name="EasyBreadcrumb" title="Color layer opacity" description="You can control here the opacity of the Color layer. From 0.1 to 1 (1 being not transparent)." css_components="" scalar_type="number" scalar_parameters="" display_order="350" sub_group="magicbreadcrumb_svg_bk"><![CDATA[1]]></property>
+    <property property_name="magicbreadcrumb_arrow_makeitclickable" property_type="scalar" definition="1" group_name="EasyBreadcrumb" title="Make arrows clickable?" description="This option will include the arrow part inside the item url." css_components="" scalar_type="boolean" scalar_parameters="" display_order="20" sub_group="magicglobal"><![CDATA[1]]></property>
+    <property property_name="magicbreadcrumb_arrow_killborders" property_type="scalar" definition="1" group_name="EasyBreadcrumb" title="Delete all arrows borders?" description="The border of arrows are not cross browsers. This options will delete any borders, even on Firefox. If you want to display clean borders on all modern browsers, use the SVG arrows solution." css_components="" scalar_type="boolean" scalar_parameters="" display_order="30" sub_group="magicglobal"><![CDATA[1]]></property>
+    <property property_name="magicbreadcrumb_svg_killbackground" property_type="scalar" definition="1" group_name="EasyBreadcrumb" title="None SVG broswers: standardise  background?" description="This option will delete the image backgrounds of breadcrumb items if the bowers is not compatible with SVG (Javascript detection)." css_components="" scalar_type="boolean" scalar_parameters="" display_order="360" sub_group="magicbreadcrumb_svg_bk"><![CDATA[1]]></property>
+    <property property_name="magicbreadcrumb_svg_background_disclaimer" property_type="scalar" definition="1" group_name="EasyBreadcrumb" title="Disclaimer" description="" css_components="text,background,border,layout,extra" scalar_type="template" scalar_parameters="style_property_magicbreadcrumb_disclaimer" display_order="300" sub_group="magicbreadcrumb_svg_bk"><![CDATA[]]></property>
+    <group group_name="EasyBreadcrumb" display_order="61">
+      <title>Easy Breadcrumb</title>
+      <description>Easy configuration for the Breadcrumb</description>
+    </group>
+  </style_properties>
+  <templates>
+    <template title="breadcrumb_magicarrow" version_id="5" version_string="2.0"><![CDATA[<xen:if is="{xen:property magicbreadcrumb_svg_activate}">
+
+	<noscript><span class="arrow"><span>{$arrow_content}</span></span></noscript>
+
+	<xen:set var="$svgWidth">{xen:property magicbreadcrumb_svg_width}</xen:set>
+	<xen:set var="$svgHeight">{xen:property magicbreadcrumb_svg_height}</xen:set>
+	<xen:set var="$svgImgUrl">{xen:property magicbreadcrumb_svg_background_url}</xen:set>
+	<xen:set var="$svgImgWidth">{xen:property magicbreadcrumb_svg_background_width}</xen:set>
+	<xen:set var="$svgImgHeight">{xen:property magicbreadcrumb_svg_background_height}</xen:set>
+
+	<div class="svg_arrow JsOnly">
+
+		<span class="svg_arrow_border">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="{$svgWidth}" height="{$svgHeight}">
+				<desc><xen:comment>Svg Arrow Outer</xen:comment></desc>
+				<defs></defs>
+				<g>
+					<path d="M0,{$svgHeight} L0,0 L{$svgWidth},{xen:calc '{$svgHeight}/2'}Z"></path>
+				</g>
+			</svg>
+		</span>
+
+		<span class="svg_arrow_inner">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="{$svgWidth}" height="{$svgHeight}">
+				<desc><xen:comment>Svg Arrow Inner</xen:comment></desc>
+				<defs>
+					<xen:if is="{xen:property magicbreadcrumb_svg_background_activate}">					
+						<pattern id="svg_breadcrumb_arrow_bk" height="{$svgImgHeight}" width="{$svgImgWidth}" patternUnits="userSpaceOnUse">
+							<image x="0" y="0" opacity="1" height="{$svgImgHeight}" width="{$svgImgWidth}" xlink:href="{$svgImgUrl}" />
+						</pattern>
+					</xen:if>
+				</defs>
+				<g>
+					<path class="layer_color" d="M0,{$svgHeight} L0,0 L{$svgWidth},{xen:calc '{$svgHeight}/2'}Z"></path>
+					<xen:if is="{xen:property magicbreadcrumb_svg_background_activate}">
+						<xen:set var="$svg_full_url">{xen:if "{$visitor.getBrowser.IEis} != 9", "{$requestPaths.fullUri}", ""}</xen:set>
+						<path fill="url({$svg_full_url}#svg_breadcrumb_arrow_bk) {xen:property magicbreadcrumb_arrow_normal.background-color}" class="layer_background" d="M0,{$svgHeight} L0,0 L{$svgWidth},{xen:calc '{$svgHeight}/2'}Z" ></path>
+					</xen:if>
+				</g>
+			</svg>
+		</span>
+	</div>
+
+	<div class="normal_arrow" style="display:none">
+		<span class="arrow"><span>{$arrow_content}</span></span>
+	</div>
+
+<xen:else />
+	<span class="arrow"><span>{$arrow_content}</span></span> 
+</xen:if>]]></template>
+    <template title="magicarrow" version_id="4" version_string="1.2"><![CDATA[<xen:edithint template="breadcrumb_magicarrow" />
+<xen:require js="js/sedo/magicarrow/magicarrow.js" />
+<xen:require css="magicarrow.css" />
+
+
+<div id="MagicArrow" class="JsOnly"
+		data-arrow-clickable = "{xen:property 'magicbreadcrumb_arrow_makeitclickable'}"
+		data-arrow-killborders = "{xen:property 'magicbreadcrumb_arrow_killborders'}"
+		data-svg-activate = "{xen:property 'magicbreadcrumb_svg_activate'}"
+		data-svg-killbackgrounds = "{xen:property 'magicbreadcrumb_svg_killbackground'}"
+><xen:comment>JS variables</xen:comment></div>
+
+<xen:if is="{xen:property magicbreadcrumb_svg_activate}">
+	<div id="MagicArrow_SVG" style="display:none;">
+		<xen:include template="breadcrumb_magicarrow"></xen:include>
+	</div>
+</xen:if>]]></template>
+    <template title="magicarrow.css" version_id="4" version_string="1.2"><![CDATA[/***Normal element***/
+	.breadcrumb .crust .crumb {
+		{xen:helper cssImportant, {xen:property magicbreadcrumb_arrow_normal}}
+	}
+	
+		.breadcrumb .crust .arrow span {
+			border-left-color: {xen:property magicbreadcrumb_arrow_normal.background-color};
+		}
+
+
+/***First element***/
+	.breadcrumb .crust:first-child .crumb {
+		{xen:helper cssImportant, {xen:property magicbreadcrumb_arrow_normal_first}}
+	}
+	
+		.breadcrumb .crust:first-child .arrow span {
+			border-left-color: {xen:property magicbreadcrumb_arrow_normal_first.background-color};
+		}
+
+/***Last element***/
+	.breadcrumb .crust:last-child .crumb {
+		{xen:helper cssImportant, {xen:property magicbreadcrumb_arrow_normal_last}}
+	}
+	
+		.breadcrumb .crust:last-child .arrow span {
+			border-left-color: {xen:property magicbreadcrumb_arrow_normal_last.background-color};
+		}
+
+/***Hover element***/
+	.breadcrumb .crumbs .crust:hover .crumb {
+		{xen:helper cssImportant, {xen:property magicbreadcrumb_arrow_hover}}
+	
+	}
+	
+		.breadcrumb .crumbs .crust:hover .arrow span {
+			border-left-color: {xen:property magicbreadcrumb_arrow_hover.background-color};
+		}
+
+
+/***SVG Arrow***/
+
+	<xen:set var="$svgWidth">{xen:property magicbreadcrumb_svg_width}</xen:set>
+	<xen:set var="$svgBorderWidth">{xen:property magicbreadcrumb_svg_border_width}</xen:set>
+	
+	.breadcrumb .crust .svg_arrow_border{
+		display: block;
+		position: absolute;
+		top: 0;
+		right: -{$svgWidth}px;
+		z-index:50;
+	}
+	
+		.breadcrumb .crust .svg_arrow_border path{
+			fill: {xen:property magicbreadcrumb_svg_border_color};
+			stroke: none;
+		}
+	
+	.breadcrumb .crust .svg_arrow_inner{
+		display: block;
+		position: absolute;
+		top: 0;
+		right: -{xen:calc '{$svgWidth}-{$svgBorderWidth}'}px;
+		z-index:51;
+	}
+	
+		.breadcrumb .crust .svg_arrow_inner path.layer_color{
+			fill: {xen:property magicbreadcrumb_arrow_normal.background-color};
+			{xen:if "{xen:property magicbreadcrumb_svg_background_activate}", "fill-opacity: {xen:property magicbreadcrumb_svg_opacity_color};"}
+			stroke: none;
+		}
+	
+		.breadcrumb .crust:first-child .svg_arrow_inner path.layer_color{
+			fill: {xen:property magicbreadcrumb_arrow_normal_first.background-color};
+		}
+	
+		.breadcrumb .crust:last-child .svg_arrow_inner path.layer_color{
+			fill: {xen:property magicbreadcrumb_arrow_normal_last.background-color};
+		}
+	
+		.breadcrumb .crumbs .crust:hover .svg_arrow_inner path.layer_color{
+			fill: {xen:property magicbreadcrumb_arrow_hover.background-color} !important;
+		}
+
+		.breadcrumb .crust .svg_arrow_inner path.layer_background{
+			/*fill: url(#svg_breadcrumb_arrow_bk);*/
+			fill-opacity: {xen:property magicbreadcrumb_svg_opacity_img};
+			stroke: none;
+		}
+
+/***Tools***/
+
+	.breadcrumb .crust .crumb_raz
+	{
+		background-image:none !important;
+	}]]></template>
+  </templates>
+  <public_template_modifications>
+    <modification template="breadcrumb" modification_key="magicarrow_breadcrumb_1" description="Magicarrow Breadcrumb 1/2" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#(<fieldset.+?class=".+?)(">)#i]]></find>
+      <replace><![CDATA[$1 MagicTms$2]]></replace>
+    </modification>
+    <modification template="breadcrumb" modification_key="magicarrow_breadcrumb_2" description="Magicarrow Breadcrumb 2/2" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#</a>\s+<span class="arrow"><span>(.*?)</span></span>#i]]></find>
+      <replace><![CDATA[{xen:if "!{xen:property 'magicbreadcrumb_arrow_makeitclickable'}", "</a>"}
+					<xen:include template="breadcrumb_magicarrow"><xen:set var="$arrow_content">$1</xen:set></xen:include>
+				{xen:if "{xen:property 'magicbreadcrumb_arrow_makeitclickable'}", "</a>"}]]></replace>
+    </modification>
+    <modification template="breadcrumb.css" modification_key="magicarrow_breadcrumb_css_1" description="Delete arrows borders" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#(\s+)({xen:property breadcrumbItemArrowOuter})#i]]></find>
+      <replace><![CDATA[$0
+$1 <xen:if is="{xen:property magicbreadcrumb_arrow_killborders}">border-left-color: transparent;</xen:if>]]></replace>
+    </modification>
+    <modification template="breadcrumb.css" modification_key="magicarrow_breadcrumb_css_2" description="Delete arrows borders on Firefox" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#(\s+)({xen:property breadcrumbItemArrowInner})#i]]></find>
+      <replace><![CDATA[$0
+$1 <xen:if is="{xen:property 'magicbreadcrumb_arrow_killborders'}">-moz-border-bottom-colors: transparent;</xen:if>]]></replace>
+    </modification>
+  </public_template_modifications>
+  <template_modifications>
+    <modification title="Magic Breadcrumb" template_title="breadcrumb" execute_order="10" modification_type="callback" callback_class="Sedo_MagicArrow_Tms_Breadcrumb" callback_method="Breadcrumb" description="" version_id="4" version_string="1.2" active="1">
+      <search_value><![CDATA[]]></search_value>
+      <replace_value><![CDATA[]]></replace_value>
+    </modification>
+    <modification title="Magic Breadcrumb CSS" template_title="breadcrumb.css" execute_order="10" modification_type="callback" callback_class="Sedo_MagicArrow_Tms_Breadcrumb" callback_method="Breadcrumb_css" description="" version_id="4" version_string="1.2" active="1">
+      <search_value><![CDATA[]]></search_value>
+      <replace_value><![CDATA[]]></replace_value>
+    </modification>
+  </template_modifications>
+  <bb_code_media_sites/>
+</addon>
