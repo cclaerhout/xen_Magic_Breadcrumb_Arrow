@@ -6,7 +6,28 @@ class Sedo_MagicArrow_Listeners_Templates
 	{
 		if ($hookName == 'footer')
 		{
-			$contents .= $template->create('magicarrow', $template->getParams());
+			$requestPaths = XenForo_Application::get('requestPaths');
+			$params['disableSVG'] = false;
+
+			/*
+			//Should be improve but can be useful to solve a svg bug
+			$excludeRoutes = array('portal', 'search');				
+			foreach($excludeRoutes as $route)
+			{
+				if($params['disableSVG'] == true)
+				{
+					break;
+				}
+
+				if(preg_match("#/$route/#i", $requestPaths["requestUri"]))
+				{
+					$params['disableSVG'] = true;						
+				}
+			}
+			*/
+
+			$mergedParams = array_merge($template->getParams(), $params);
+			$contents .= $template->create('magicarrow', $mergedParams);
 		}
 	}
 	

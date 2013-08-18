@@ -153,16 +153,17 @@ Last thing: if you want this background configuration to work with IE9, <b>you w
 <xen:else />
 	<span class="arrow"><span>{$arrow_content}</span></span> 
 </xen:if>]]></template>
-    <template title="magicarrow" version_id="4" version_string="1.2"><![CDATA[<xen:edithint template="breadcrumb_magicarrow" />
+    <template title="magicarrow" version_id="6" version_string="2.1"><![CDATA[<xen:edithint template="breadcrumb_magicarrow" />
 <xen:require js="js/sedo/magicarrow/magicarrow.js" />
 <xen:require css="magicarrow.css" />
 
 
 <div id="MagicArrow" class="JsOnly"
-		data-arrow-clickable = "{xen:property 'magicbreadcrumb_arrow_makeitclickable'}"
-		data-arrow-killborders = "{xen:property 'magicbreadcrumb_arrow_killborders'}"
-		data-svg-activate = "{xen:property 'magicbreadcrumb_svg_activate'}"
-		data-svg-killbackgrounds = "{xen:property 'magicbreadcrumb_svg_killbackground'}"
+		data-arrow-clickable = "{xen:property magicbreadcrumb_arrow_makeitclickable}"
+		data-arrow-killborders = "{xen:property magicbreadcrumb_arrow_killborders}"
+		data-svg-activate = "{xen:property magicbreadcrumb_svg_activate}"
+		data-svg-killbackgrounds = "{xen:property magicbreadcrumb_svg_killbackground}"
+		data-disable-svg = "{$disableSVG}"
 ><xen:comment>JS variables</xen:comment></div>
 
 <xen:if is="{xen:property magicbreadcrumb_svg_activate}">
