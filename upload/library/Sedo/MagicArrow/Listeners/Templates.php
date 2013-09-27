@@ -30,21 +30,22 @@ class Sedo_MagicArrow_Listeners_Templates
 			$contents .= $template->create('magicarrow', $mergedParams);
 		}
 	}
-	
-	
+
 	public static function postrender($templateName, &$content, array &$containerData, XenForo_Template_Abstract $template)
 	{
+		/***
 		if ($templateName == 'PAGE_CONTAINER')
 		{
 			$Tms = preg_match('#<fieldset.*?class=".*?breadcrumb.*?MagicTms.*?".*?>#ui', $content);
-			
+
 			if(!empty($Tms))
 			{
 				//If Tms is activated, clean the code
 				$content = preg_replace('#<div id="MagicArrow_SVG".+?>((?:<div.+?>.*</div>|.)+?)</div>#sui', '', $content);
-			
 			}
 		}
+		*/
 	}
 }
+
 //	Zend_Debug::dump($abc);
